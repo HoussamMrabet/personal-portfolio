@@ -17,6 +17,11 @@ const Navbar = () => {
     "Contact",
   ];
 
+  const clickHandle = e => {
+    e.stopPropagation();
+    setToggle(prevState => !prevState);
+  };
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
@@ -32,14 +37,21 @@ const Navbar = () => {
       </ul>
 
       <div className="app__navbar-menu">
-        <HiMenuAlt4 onClick={() => setToggle(true)} />
+        <HiMenuAlt4 onClick={(e) => clickHandle(e)} />
 
         {toggle && (
           <motion.div
+          initial={{width: 0}}
+          animate={{ width: 450 }}
           transition={{ duration: 0.85, ease: "easeOut" }}
-          whileInView={{ x: [300, 0] }}
           >
-            <HiX onClick={() => setToggle(false)} />
+            <motion.span
+              initial={{ width: 0 }}
+              animate={{ width: 70 }}
+              transition={{ duration: 0.85, ease: "easeOut" }}
+            >
+              <HiX onClick={(e) => clickHandle(e)} />
+            </motion.span>
             <ul>
               {navElements.map((element) => (
                 <li key={element}>
