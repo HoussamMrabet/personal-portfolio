@@ -8,7 +8,7 @@ import "./Navbar.scss";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
-  const navElements = [
+  const navItems = [
     "Home",
     "About",
     "Work",
@@ -28,7 +28,7 @@ const Navbar = () => {
         <img src={images.logo} alt="logo" draggable="false" />
       </div>
       <ul className="app__navbar-links">
-        {navElements.map((element) => (
+        {navItems.map((element) => (
           <li className="app__flex p-text" key={`link-${element}`}>
             <div />
             <a href={`#${element}`}>{element}</a>
@@ -53,9 +53,9 @@ const Navbar = () => {
               <HiX onClick={(e) => clickHandle(e)} />
             </motion.span>
             <ul>
-              {navElements.map((element) => (
-                <li key={element}>
-                  <a href={`#${element}`} onClick={() => setToggle(false)}>{element}</a>
+              {navItems.map((item) => (
+                <li key={item}>
+                  <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
                 </li>
               ))}
             </ul>
