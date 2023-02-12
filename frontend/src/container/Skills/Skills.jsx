@@ -29,7 +29,7 @@ const Skills = () => {
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
-          {skills?.map((skill) => (
+          {skills.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
@@ -46,15 +46,15 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
-        <motion.div className="app__skills-exp">
-          {experiences?.map((experience) => (
+        <div className="app__skills-exp">
+          {experiences.map((experience) => (
             <motion.div className="app__skills-exp-item" key={experience.year}>
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
                 {experience.works.map((work) => (
-                  <>
+                  <div key={work.name}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
@@ -74,15 +74,19 @@ const Skills = () => {
                     >
                       {work.desc}
                     </Tooltip>
-                  </>
+                  </div>
                 ))}
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </>
   );
 };
 
-export default AppWrap(MotionWrap(Skills, 'app__skills'), 'skills', "app__whitebg");
+export default AppWrap(
+  MotionWrap(Skills, "app__skills"),
+  "skills",
+  "app__whitebg"
+);

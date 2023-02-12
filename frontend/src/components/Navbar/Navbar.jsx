@@ -42,7 +42,7 @@ const Navbar = () => {
         {toggle && (
           <motion.div
           initial={{width: 0}}
-          animate={{ width: 450 }}
+          animate={{ width: 300 }}
           transition={{ duration: 0.85, ease: "easeOut" }}
           >
             <motion.span
