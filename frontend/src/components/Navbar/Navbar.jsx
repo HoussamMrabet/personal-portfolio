@@ -9,17 +9,17 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   const navItems = [
-    "Home",
-    "About",
-    "Work",
-    "Skills",
-    "Testimonial",
-    "Contact",
+    "home",
+    "about",
+    "work",
+    "skills",
+    "testimonial",
+    "contact",
   ];
 
-  const clickHandle = e => {
+  const clickHandle = (e) => {
     e.stopPropagation();
-    setToggle(prevState => !prevState);
+    setToggle((prevState) => !prevState);
   };
 
   return (
@@ -41,9 +41,9 @@ const Navbar = () => {
 
         {toggle && (
           <motion.div
-          initial={{width: 0}}
-          animate={{ width: 300 }}
-          transition={{ duration: 0.85, ease: "easeOut" }}
+            initial={{ width: 0 }}
+            animate={{ width: 300 }}
+            transition={{ duration: 0.85, ease: "easeOut" }}
           >
             <motion.span
               initial={{ width: 0 }}
@@ -55,7 +55,9 @@ const Navbar = () => {
             <ul>
               {navItems.map((item) => (
                 <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>{item}</a>
+                  <a href={`#${item}`} onClick={() => setToggle(false)}>
+                    {item}
+                  </a>
                 </li>
               ))}
             </ul>
