@@ -58,7 +58,7 @@ const Navbar = () => {
         ))}
       </ul>
       
-      <a style={{cursor: "pointer"}} onClick={(e) => darkModeHandle(e)}>{ darkMode ? <HiSun style={{color: "white", width: "30px", height: "30px"}}/>:<HiMoon style={{width: "30px", height: "30px"}} />}</a>
+      <a href="/#" style={{cursor: "pointer", color: "black", textDecoration: "none"}} onClick={(e) => darkModeHandle(e)}>{ darkMode ? <HiSun style={{color: "white", width: "30px", height: "30px"}}/>:<HiMoon style={{width: "30px", height: "30px"}} />}</a>
 
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={(e) => clickHandle(e)} />
