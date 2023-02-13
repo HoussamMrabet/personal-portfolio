@@ -6,6 +6,7 @@ import {
   enable as enableDarkMode,
   disable as disableDarkMode,
   isEnabled as isDarkReaderEnabled,
+  setFetchMethod
 } from "darkreader";
 
 import { images } from "../../constants";
@@ -31,6 +32,7 @@ const Navbar = () => {
 
   const darkModeHandle = (e) => {
     e.stopPropagation();
+    setFetchMethod(window.fetch);
     if (isDarkReaderEnabled()) {
       disableDarkMode();
       setDarkMode(false);
