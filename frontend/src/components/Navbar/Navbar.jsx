@@ -1,12 +1,19 @@
 import { useState } from "react";
-import { HiMenuAlt4, HiX } from "react-icons/hi";
+import { HiMenuAlt4, HiX, HiMoon, HiSun } from "react-icons/hi";
 import { motion } from "framer-motion";
+
+import {
+  enable as enableDarkMode,
+  disable as disableDarkMode,
+  isEnabled as isDarkReaderEnabled,
+} from "darkreader";
 
 import { images } from "../../constants";
 import "./Navbar.scss";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const navItems = [
     "home",
@@ -22,6 +29,21 @@ const Navbar = () => {
     setToggle((prevState) => !prevState);
   };
 
+  const darkModeHandle = (e) => {
+    e.stopPropagation();
+    if (isDarkReaderEnabled()) {
+      disableDarkMode();
+      setDarkMode(false);
+    } else {
+      enableDarkMode({
+        brightness: 90,
+        contrast: 110,
+        sepia: 0,
+      });
+      setDarkMode(true);
+    }
+  };
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
@@ -35,10 +57,12 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      
+      <a style={{cursor: "pointer"}} onClick={(e) => darkModeHandle(e)}>{ darkMode ? <HiSun style={{color: "white", width: "30px", height: "30px"}}/>:<HiMoon style={{width: "30px", height: "30px"}} />}</a>
 
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={(e) => clickHandle(e)} />
-
+          
         {toggle && (
           <motion.div
             initial={{ width: 0 }}

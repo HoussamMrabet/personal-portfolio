@@ -1,6 +1,5 @@
 #home {
   position: relative;
-  background: url("../../assets/bgIMG.png");
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
@@ -12,6 +11,12 @@
       display: none;
     }
   }
+}
+
+.dark{  background: url("../../assets/bgIMGdark.png");
+}
+
+.light{  background: url("../../assets/bgIMG.png");
 }
 
 .app__header {
