@@ -1,6 +1,5 @@
 import React from "react";
 import { NavigationDots, SocialMedia } from "../components";
-import { isEnabled as isDarkReaderEnabled } from "darkreader";
 
 const AppWrapp = (Component, idName, classNames) =>
   function HOC() {
