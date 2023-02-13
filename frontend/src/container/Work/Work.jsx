@@ -6,20 +6,23 @@ import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Work.scss";
 
-const tags = ["All", "UI/UX", "Web App", "Mobile App", "React JS"];
-
 const Work = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState([]);
+  const [tags, setTags] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
 
   useEffect(() => {
     const query = '*[_type == "works"]';
+    const tagsQuery = '*[_type == "tags"]';
 
     client.fetch(query).then((data) => {
       setWorks(data);
       setFilterWork(data);
+    });
+    client.fetch(tagsQuery).then((data) => {
+      setTags(data);
     });
   }, []);
 
@@ -44,15 +47,24 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
+        <div
+            key="all"
+            className={`app__work-filter-item app__flex p-text ${
+              activeFilter === "All" ? "item-active" : ""
+            }`}
+            onClick={() => handleWorkFilter("All")}
+          >
+            All
+          </div>
         {tags.map((item, index) => (
           <div
             key={index}
             className={`app__work-filter-item app__flex p-text ${
-              activeFilter === item ? "item-active" : ""
+              activeFilter === item.name ? "item-active" : ""
             }`}
-            onClick={() => handleWorkFilter(item)}
+            onClick={() => handleWorkFilter(item.name)}
           >
-            {item}
+            {item.name}
           </div>
         ))}
       </div>

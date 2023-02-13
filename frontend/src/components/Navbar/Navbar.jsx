@@ -60,7 +60,8 @@ const Navbar = () => {
         ))}
       </ul>
       
-      <a href="/#" style={{cursor: "pointer", color: "black", textDecoration: "none"}} onClick={(e) => darkModeHandle(e)}>{ darkMode ? <HiSun style={{color: "white", width: "30px", height: "30px"}}/>:<HiMoon style={{width: "30px", height: "30px"}} />}</a>
+      {/* eslint-disable-next-line*/}
+      <a href="javascript:void(0)" style={{cursor: "pointer", color: "black", textDecoration: "none"}} onClick={(e) => darkModeHandle(e)}>{ darkMode ? <HiSun style={{color: "white", width: "30px", height: "30px"}}/>:<HiMoon style={{width: "30px", height: "30px"}} />}</a>
 
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={(e) => clickHandle(e)} />

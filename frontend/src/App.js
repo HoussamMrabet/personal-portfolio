@@ -1,4 +1,5 @@
 import React from "react";
+import { NavigationDots, SocialMedia } from "./components";
 
 import { Header, Footer, About, Skills, Testimonial, Work } from "./container";
 import { Navbar } from "./components";
@@ -15,6 +16,8 @@ const App = () => {
       <Skills />
       <Testimonial />
       <Footer />
+      <NavigationDots />
+      <SocialMedia />
     </div>
   );
 };
