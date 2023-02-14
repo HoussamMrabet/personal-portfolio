@@ -87,7 +87,7 @@ const Work = () => {
                 }}
                 className="app__work-hover app__flex"
               >
-                <a href={work.codeLink} rel="noopener">
+                <a href={work.projectLink} rel="noopener">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ opacity: [1, 0.9] }}
@@ -97,7 +97,7 @@ const Work = () => {
                     <AiFillEye />
                   </motion.div>
                 </a>
-                <a href={work.projectLink} rel="noopener">
+                <a href={work.codeLink} rel="noopener">
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ opacity: [1, 0.9] }}
