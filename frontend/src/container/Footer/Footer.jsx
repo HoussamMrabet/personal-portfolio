@@ -87,6 +87,7 @@ const Footer = () => {
               value={message}
               name="message"
               onChange={handleChangeInput}
+              style={{resize:"none"}}
             />
           </div>
           <button type="button" className="p-text" onClick={handleSubmit}>

@@ -49,7 +49,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.logo} alt="logo" draggable="false" />
+        <img src={images.logo} alt="logo" />
       </div>
       <ul className="app__navbar-links">
         {navItems.map((element) => (
